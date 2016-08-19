@@ -24,6 +24,7 @@ class GildedRose {
     private List<Item> items;
 
     public GildedRose(Item[] items) {
+        assert items != null;
         this.items = Arrays.asList(items);
     }
 

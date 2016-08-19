@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static com.ennovate.gildedrose.GildedRose.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class GildedRoseTest {
 
@@ -13,6 +14,14 @@ public class GildedRoseTest {
     Item[] items;
 
     GildedRose subject;
+    
+
+    @Test
+    public void shouldThrowAssertionErrorForNullItems() throws Exception {
+
+        assertThatThrownBy(() -> new GildedRose(null).updateQuality())
+                .isInstanceOf(AssertionError.class);
+    }
 
     @Test
     public void shouldNotUpdateForSulfuras() throws Exception {
