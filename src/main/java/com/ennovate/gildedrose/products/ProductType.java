@@ -12,40 +12,40 @@ public enum ProductType {
 
     AGEDBRIE {
         @Override
-        public Product updateStrategy(Item item) {
+        public Strategy updateStrategy(Item item) {
 
-            return new Product(item, new QualityIncreasesStrategy(), new SellInDecreasesStrategy());
+            return new Strategy(item, new QualityIncreasesStrategy(), new SellInDecreasesStrategy());
         }
     },
 
     BACKSTAGE_PASSES {
         @Override
-        public Product updateStrategy(Item item) {
-            return new Product(item, new QualityIncreasesWithSellInStrategy(), new SellInDecreasesStrategy());
+        public Strategy updateStrategy(Item item) {
+            return new Strategy(item, new QualityIncreasesWithSellInStrategy(), new SellInDecreasesStrategy());
         }
     },
 
     SULFURAS {
         @Override
-        public Product updateStrategy(Item item) {
-            return new Product(item, new QualityLegendaryStrategy(), new SellInNoChangeStrategy());
+        public Strategy updateStrategy(Item item) {
+            return new Strategy(item, new QualityLegendaryStrategy(), new SellInNoChangeStrategy());
         }
     },
 
     CONJURED {
         @Override
-        public Product updateStrategy(Item item) {
-            return new Product(item, new QualityDecreasesStrategy(4,2), new SellInDecreasesStrategy());
+        public Strategy updateStrategy(Item item) {
+            return new Strategy(item, new QualityDecreasesStrategy(4,2), new SellInDecreasesStrategy());
         }
     },
 
     NORMAL {
         @Override
-        public Product updateStrategy(Item item) {
-            return new Product(item, new QualityDecreasesStrategy(), new SellInDecreasesStrategy());
+        public Strategy updateStrategy(Item item) {
+            return new Strategy(item, new QualityDecreasesStrategy(), new SellInDecreasesStrategy());
         }
     };
 
-    public abstract Product updateStrategy(Item item);
+    public abstract Strategy updateStrategy(Item item);
 
 }

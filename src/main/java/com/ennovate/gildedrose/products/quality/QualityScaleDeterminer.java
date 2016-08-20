@@ -24,11 +24,19 @@ public class QualityScaleDeterminer {
     public static int determine(boolean sellInPassed, int sellInDays) {
         if (sellInPassed) {
             return ZERO_SCALE;
-        } else if (sellInDays >= SELL_IN_SCALE_2 && sellInDays < SELL_IN_SCALE_1) {
+        } else if (tenDaysOrLess(sellInDays)) {
             return MEDIUM_SCALE;
-        } else if (sellInDays < SELL_IN_SCALE_2) {
+        } else if (fiveDaysOrLess(sellInDays)) {
             return RAPID_SCALE;
         }
         return NORMAL_SCALE;
+    }
+
+    private static boolean fiveDaysOrLess(int sellInDays) {
+        return sellInDays < SELL_IN_SCALE_2;
+    }
+
+    private static boolean tenDaysOrLess(int sellInDays) {
+        return sellInDays >= SELL_IN_SCALE_2 && sellInDays < SELL_IN_SCALE_1;
     }
 }

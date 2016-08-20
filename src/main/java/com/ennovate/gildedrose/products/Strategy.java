@@ -4,14 +4,14 @@ import com.ennovate.gildedrose.Item;
 import com.ennovate.gildedrose.products.quality.QualityStrategy;
 import com.ennovate.gildedrose.products.sellIn.SellInStrategy;
 
-public class Product {
+public class Strategy {
     protected final QualityStrategy qualityStrategy;
     protected final SellInStrategy sellInStrategy;
     protected Item item;
 
-    public Product(Item item, QualityStrategy qualityStrategy, SellInStrategy sellInStrategy) {
-        this.sellInStrategy = sellInStrategy;
+    public Strategy(Item item, QualityStrategy qualityStrategy, SellInStrategy sellInStrategy) {
         this.item = item;
+        this.sellInStrategy = sellInStrategy;
         this.qualityStrategy = qualityStrategy;
     }
 
