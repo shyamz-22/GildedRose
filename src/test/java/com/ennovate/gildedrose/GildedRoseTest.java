@@ -36,7 +36,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void shouldReducesSellInAndQualityForNormalItem() throws Exception {
+    public void shouldReduceSellInAndQualityForNormalItem() throws Exception {
 
         createNormalItem(10, 10);
 

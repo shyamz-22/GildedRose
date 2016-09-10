@@ -14,7 +14,7 @@ class GildedRose {
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     public static final String CONJURED = "Conjured Mana Cake";
 
-    Map<String, ProductType> map = new HashMap<String,ProductType>(){{
+    Map<String, ProductType> map = new HashMap<String, ProductType>() {{
         put(BACKSTAGE_PASSES, ProductType.BACKSTAGE_PASSES);
         put(AGED_BRIE, ProductType.AGEDBRIE);
         put(SULFURAS, ProductType.SULFURAS);
@@ -29,12 +29,10 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        items.stream().forEach(item -> type(item.getName())
-                .updateStrategy(item)
-                .update());
+        items.forEach(item -> type(item.getName()).update(item));
     }
 
-    private ProductType type(String itemName){
+    private ProductType type(String itemName) {
         return map.get(itemName) != null ? map.get(itemName) : ProductType.NORMAL;
     }
 }
